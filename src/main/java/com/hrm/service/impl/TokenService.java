@@ -72,6 +72,11 @@ public class TokenService {
         return tokenString;
     }
 
+    public boolean delToken(String token) {
+        LoginUser loginUser = verifyToken(token);
+        return delTokenCache(loginUser.getUuid());
+    }
+
     /**
      * 验证token
      * @param token
@@ -128,7 +133,15 @@ public class TokenService {
 
     private LoginUser getTokenCache(String uuid) {
         String userKey = getTokenKey(uuid);
-        return redisCache.getCacheObject(userKey);
+        Object cacheObject = redisCache.getCacheObject(userKey);
+        if (cacheObject == null) {
+            throw new BusinessException(ResCodeEnum.NOT_LOGIN, "token过期");
+        }
+        return (LoginUser) cacheObject;
     }
 
+    private boolean delTokenCache(String uuid) {
+        String userKey = getTokenKey(uuid);
+        return redisCache.deleteObject(userKey);
+    }
 }

@@ -4,7 +4,6 @@ import com.hrm.model.SysUser;
 import lombok.Data;
 
 import java.io.Serializable;
-import java.util.Set;
 
 /**
  * @author guchun

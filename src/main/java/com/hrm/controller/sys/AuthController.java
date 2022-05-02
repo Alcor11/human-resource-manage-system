@@ -15,6 +15,7 @@ import com.hrm.model.domain.vo.UserRegisterRequest;
 import com.hrm.service.SysUserService;
 import com.hrm.service.impl.TokenService;
 import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
@@ -72,6 +73,18 @@ public class AuthController extends BaseController {
     @TokenVerify
     public BaseResponse checkToken(@RequestParam(value = "token") String token) {
         return ResultUtils.success("success");
+    }
+
+    @GetMapping("/current")
+    public BaseResponse currentUserInfo(HttpServletRequest httpServletRequest) {
+        LoginUser loginUser = super.getLoginUser(httpServletRequest);
+        return ResultUtils.success(loginUser);
+    }
+
+    @GetMapping("/offline")
+    public BaseResponse offLineAccount(HttpServletRequest httpServletRequest) {
+        boolean b = super.offLineUser(httpServletRequest);
+        return b ? ResultUtils.success("下线成功") : ResultUtils.success("下线失败或已下线");
     }
 
 }
