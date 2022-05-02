@@ -75,6 +75,7 @@ public class AuthController extends BaseController {
         return ResultUtils.success("success");
     }
 
+
     @GetMapping("/current")
     public BaseResponse currentUserInfo(HttpServletRequest httpServletRequest) {
         LoginUser loginUser = super.getLoginUser(httpServletRequest);
