@@ -1,11 +1,11 @@
 package com.hrm.controller.sys;
 
 import com.hrm.aspectlj.config.TokenVerify;
+import com.hrm.exception.BusinessException;
 import com.hrm.common.BaseResponse;
 import com.hrm.common.ResCodeEnum;
 import com.hrm.common.ResultUtils;
 import com.hrm.controller.BaseController;
-import com.hrm.exception.BusinessException;
 import com.hrm.model.domain.bo.LoginUser;
 import com.hrm.model.domain.dto.UserRegisterDTO;
 import com.hrm.model.domain.mapstruct.UserRegisterMap;
@@ -16,14 +16,8 @@ import com.hrm.service.SysUserService;
 import com.hrm.service.impl.TokenService;
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletRequest;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Deque;
-import java.util.LinkedList;
-
-import static com.hrm.contant.UserContant.*;
 
 /**
  * @author guchun

@@ -1,8 +1,7 @@
 package com.hrm.aspectlj;
 
-import com.hrm.common.ResCodeEnum;
 import com.hrm.exception.BusinessException;
-import com.hrm.model.domain.bo.LoginUser;
+import com.hrm.common.ResCodeEnum;
 import com.hrm.service.impl.TokenService;
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletRequest;
@@ -16,10 +15,6 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * @author guchun
