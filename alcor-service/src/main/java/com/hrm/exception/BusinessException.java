@@ -1,6 +1,6 @@
 package com.hrm.exception;
 
-import com.hrm.common.ResCodeEnum;
+import com.hrm.common.exception.ResCodeEnum;
 
 /**
  * @author guchun

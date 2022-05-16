@@ -1,6 +1,8 @@
 package com.hrm.common;
 
 
+import com.hrm.common.exception.ResCodeEnum;
+
 /**
  * @author guchun
  * @description TODO

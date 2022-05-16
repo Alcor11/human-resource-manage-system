@@ -7,7 +7,7 @@ import com.auth0.jwt.exceptions.JWTCreationException;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.hrm.exception.BusinessException;
-import com.hrm.common.ResCodeEnum;
+import com.hrm.common.exception.ResCodeEnum;
 import com.hrm.model.domain.bo.LoginUser;
 import com.hrm.utils.RedisCache;
 import jakarta.annotation.Resource;

@@ -1,7 +1,7 @@
 package com.hrm.aspectlj;
 
 import com.hrm.exception.BusinessException;
-import com.hrm.common.ResCodeEnum;
+import com.hrm.common.exception.ResCodeEnum;
 import com.hrm.service.impl.TokenService;
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletRequest;

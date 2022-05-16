@@ -3,7 +3,7 @@ package com.hrm.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.hrm.exception.BusinessException;
-import com.hrm.common.ResCodeEnum;
+import com.hrm.common.exception.ResCodeEnum;
 import com.hrm.model.SysUser;
 import com.hrm.model.domain.bo.LoginUser;
 import com.hrm.model.domain.dto.UserRegisterDTO;

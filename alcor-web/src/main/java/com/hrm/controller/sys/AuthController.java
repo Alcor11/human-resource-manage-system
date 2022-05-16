@@ -3,15 +3,17 @@ package com.hrm.controller.sys;
 import com.hrm.aspectlj.config.TokenVerify;
 import com.hrm.exception.BusinessException;
 import com.hrm.common.BaseResponse;
-import com.hrm.common.ResCodeEnum;
+import com.hrm.common.exception.ResCodeEnum;
 import com.hrm.common.ResultUtils;
 import com.hrm.controller.BaseController;
 import com.hrm.model.domain.bo.LoginUser;
+import com.hrm.model.domain.dto.SysRoleDTO;
 import com.hrm.model.domain.dto.UserRegisterDTO;
 import com.hrm.model.domain.mapstruct.UserRegisterMap;
 import com.hrm.model.domain.vo.UserDataVO;
 import com.hrm.model.domain.vo.UserLoginRequest;
 import com.hrm.model.domain.vo.UserRegisterRequest;
+import com.hrm.service.SysRoleService;
 import com.hrm.service.SysUserService;
 import com.hrm.service.impl.TokenService;
 import jakarta.annotation.Resource;
@@ -36,6 +38,9 @@ public class AuthController extends BaseController {
 
     @Resource
     TokenService tokenService;
+
+    @Resource
+    SysRoleService sysRoleService;
 
     @PostMapping("/register")
     public BaseResponse<Long> register(@RequestBody UserRegisterRequest registerRequest) {
@@ -63,12 +68,6 @@ public class AuthController extends BaseController {
 
     }
 
-    @GetMapping("/token")
-    @TokenVerify
-    public BaseResponse checkToken(@RequestParam(value = "token") String token) {
-        return ResultUtils.success("success");
-    }
-
     @GetMapping("/current")
     public BaseResponse currentUserInfo(HttpServletRequest httpServletRequest) {
         LoginUser loginUser = super.getLoginUser(httpServletRequest);
@@ -79,6 +78,13 @@ public class AuthController extends BaseController {
     public BaseResponse offLineAccount(HttpServletRequest httpServletRequest) {
         boolean b = super.offLineUser(httpServletRequest);
         return b ? ResultUtils.success("下线成功") : ResultUtils.success("下线失败或已下线");
+    }
+
+    @TokenVerify
+    @PostMapping("/role_add")
+    public BaseResponse addUserRole(@RequestBody SysRoleDTO sysRoleDTO) {
+        boolean b = sysRoleService.addRole(sysRoleDTO);
+        return b ? ResultUtils.success("添加成功") : ResultUtils.error(ResCodeEnum.PARAMS_ERROR);
     }
 
 }

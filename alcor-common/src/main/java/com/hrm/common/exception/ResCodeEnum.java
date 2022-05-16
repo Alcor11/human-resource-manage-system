@@ -1,4 +1,4 @@
-package com.hrm.common;
+package com.hrm.common.exception;
 
 /**
  * @author guchun
