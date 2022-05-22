@@ -10,6 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Deque;
+import java.util.PriorityQueue;
+import java.util.Queue;
+
 /**
  * @author guchun
  * @description kafka controller
